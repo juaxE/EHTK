@@ -8,3 +8,4 @@
 * tehtävien syöttö
 * menojen syöttö
 * ajankäytön syöttö
+* ajanjakson valinta
