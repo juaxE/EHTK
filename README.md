@@ -8,3 +8,7 @@ Elämänhallintatyökalu. Sisältää rahan- ja ajanhallintaa edistäviä ominai
 
 * [Tuntikirjanpito](dokumentaatio/tuntikirjanpito.md)
 
+* [Pit-raportti](dokumentaatio/pit/)
+
+* [Checkstyle-raportti](dokumentaatio/checkstyle)
+
