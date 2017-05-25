@@ -2,7 +2,7 @@
 Elämänhallintatyökalu. Sisältää rahan- ja ajanhallintaa edistäviä ominaisuuksia.
 
 
-# Dokumentaatio
+### Dokumentaatio
 
 [aiheen kuvaus](dokumentaatio/aiheenKuvausJaRakenne.md)
 
