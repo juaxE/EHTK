@@ -4,7 +4,7 @@ Elämänhallintatyökalu. Sisältää rahan- ja ajanhallintaa edistäviä ominai
 
 ### Dokumentaatio
 
-* [aiheen kuvaus](dokumentaatio/aiheenKuvausJaRakenne.md)
+* [Aiheen kuvaus](dokumentaatio/aiheenKuvausJaRakenne.md)
 
-* [tuntikirjanpito](dokumentaatio/tuntikirjanpito.md)
+* [Tuntikirjanpito](dokumentaatio/tuntikirjanpito.md)
 
