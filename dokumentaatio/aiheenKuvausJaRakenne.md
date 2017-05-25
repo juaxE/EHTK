@@ -1,6 +1,4 @@
-﻿
-aihe
-=======
+
 **Aihe:** Elämänhallintasovellus. Auttaa käyttäjää hahmottamaan rahan- ja ajankäyttöään.
 
 **Käyttäjät:** Käyttäjä
