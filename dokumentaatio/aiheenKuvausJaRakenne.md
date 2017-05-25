@@ -12,3 +12,7 @@
 * ajankäytön syöttö
 
 * raporttitiedoston tallentaminen
+
+
+
+![Luokkakaavio](/dokumentaatio/luokkakaavio.png)
