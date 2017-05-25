@@ -1,5 +1,5 @@
 # EHTK
-Elämänhallintatyökalu. Sisältää rahan- ja ajanhallintaa edistäviä ominaisuuksia.
+Elämänhallintatyökalu. Sisältää rahan- ja ajanhallinnassa käyttäjää tukevia ominaisuuksia.
 
 
 ### Dokumentaatio
