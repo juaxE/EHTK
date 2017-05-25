@@ -1,2 +1,3 @@
-# EHTK
+﻿# EHTK
 Elämänhallintatyökalu
+. Budjetointia ja työnteon suunnittelua.
