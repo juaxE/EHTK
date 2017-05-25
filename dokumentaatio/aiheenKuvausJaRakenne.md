@@ -6,7 +6,9 @@
 **Käyttäjän toiminnot:**
 
 * tulojen syöttö
-* tehtävien syöttö
 * menojen syöttö
+
+* tehtävien syöttö
 * ajankäytön syöttö
+
 * raporttitiedoston tallentaminen
