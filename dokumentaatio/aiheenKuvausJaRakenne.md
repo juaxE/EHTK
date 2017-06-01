@@ -19,4 +19,4 @@
 ### Luokkakaavio
 
 
-![Luokkakaavio](/dokumentaatio/luokkakaavio2.png)
+![Luokkakaavio](/dokumentaatio/luokkakaavio.png)
