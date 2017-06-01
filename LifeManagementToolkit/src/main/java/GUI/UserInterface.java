@@ -26,7 +26,10 @@ public class UserInterface extends Application {
 
         Budgeter budgeter = new Budgeter();
         Tasklist tasklist = new Tasklist();
+        
         BudgetView budgetView = new BudgetView(budgeter);
+        TaskView taskView = new TaskView(tasklist);
+        
         BorderPane setting = new BorderPane();
 
         Label description = new Label("Elämänhallintasovellus(EHTK) on työväline ihmisen arkea tukemaan."
