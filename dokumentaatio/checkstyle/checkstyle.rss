@@ -25,7 +25,7 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2017</copyright>
     <item>
-      <title>File: 3,
+      <title>File: 7,
              Errors: 0,
              Warnings: 0,
              Infos: 0
@@ -44,6 +44,20 @@ under the License.
             </tr>
           </thead>
           <tbody>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#ehtk.Main.java">ehtk/Main.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#logic.Tasklist.java">logic/Tasklist.java</a>
@@ -75,6 +89,48 @@ under the License.
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#logic.Task.java">logic/Task.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#gui.BudgetView.java">gui/BudgetView.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#gui.TaskView.java">gui/TaskView.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#gui.UserInterface.java">gui/UserInterface.java</a>
                 </td>
                 <td>
                   0

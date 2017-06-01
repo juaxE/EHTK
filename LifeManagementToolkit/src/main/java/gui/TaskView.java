@@ -3,19 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package EHTK;
+package gui;
 
-
-import GUI.UserInterface;
-import javafx.application.Application;
+import logic.Tasklist;
+import logic.Task;
 
 /**
  *
  * @author Juho
  */
-public class Main {
-    public static void main(String[] args) {
-        Application.launch(UserInterface.class);
+public class TaskView {
+    private Tasklist tasklist;
+
+    public TaskView(Tasklist tasklist) {
+        this.tasklist = tasklist;
     }
     
 }

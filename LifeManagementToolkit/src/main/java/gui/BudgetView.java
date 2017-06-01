@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package GUI;
+package gui;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -67,9 +67,9 @@ public class BudgetView {
             try {
                 setting.getChildren().remove(error);
 
-                String n = incomeName.getText();
                 double add = Double.parseDouble(income.getText());
-                
+                String n = incomeName.getText();
+
                 budgeter.addIncome(n, add);
 
             } catch (Exception e) {
@@ -80,14 +80,14 @@ public class BudgetView {
             income.clear();
             incomeName.clear();
         });
-        
+
         saveExpense.setOnAction((event) -> {
             try {
                 setting.getChildren().remove(error);
 
                 String n = expenseName.getText();
                 double add = Double.parseDouble(expense.getText());
-                
+
                 budgeter.addExpense(n, add);
 
             } catch (Exception e) {
@@ -98,7 +98,7 @@ public class BudgetView {
             expense.clear();
             expenseName.clear();
         });
-        
+
         return setting;
     }
 }
