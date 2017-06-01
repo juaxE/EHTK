@@ -85,8 +85,8 @@ public class BudgetView {
             try {
                 setting.getChildren().remove(error);
 
-                String n = expenseName.getText();
                 double add = Double.parseDouble(expense.getText());
+                String n = expenseName.getText();
 
                 budgeter.addExpense(n, add);
 
