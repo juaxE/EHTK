@@ -14,6 +14,11 @@ import javafx.application.Application;
  * @author Juho
  */
 public class Main {
+
+    /**
+     *
+     * The main-method that launches the program.
+     */
     public static void main(String[] args) {
         Application.launch(UserInterface.class);
     }

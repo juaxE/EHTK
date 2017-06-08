@@ -10,18 +10,26 @@ import java.util.Map;
 
 /**
  *
- * @author Juho
+ * Class keeps track of income and expenses.
  */
 public class Budgeter {
 
     private Map<String, Double> income;
     private Map<String, Double> expenses;
 
+    /**
+     * Constructor that sets the Map attributes for income and expenses.
+     */
     public Budgeter() {
         income = new HashMap<>();
         expenses = new HashMap<>();
     }
 
+    /**
+     * Calculates the balance.
+     *
+     * @return The division of income and expenses.
+     */
     public double checkBalance() {
         double a = 0;
         double b = 0;
@@ -38,29 +46,52 @@ public class Budgeter {
 
     }
 
+    /**
+     * This method adds expenses to the Map.
+     *
+     * @param name name of the expense
+     * @param value expense amount
+     */
     public void addExpense(String name, double value) {
-        expenses.put(name, value);
+        if (expenses.keySet().contains(name)) {
+            expenses.put(name, value + expenses.get(name));
+        } else {
+            expenses.put(name, value);
+        }
 
     }
 
+    /**
+     * This method adds income to the Map.
+     *
+     * @param name name of the income
+     * @param value income amount
+     */
     public void addIncome(String name, double value) {
-        income.put(name, value);
+        if (income.keySet().contains(name)) {
+            income.put(name, value + income.get(name));
+        } else {
+            income.put(name, value);
+        }
+
     }
 
+    /**
+     * Method returns the Map of incomes given to object.
+     *
+     * @return income map
+     */
     public Map<String, Double> getIncome() {
         return income;
     }
 
-    public void setIncome(Map<String, Double> income) {
-        this.income = income;
-    }
-
+    /**
+     * Method returns the Map of expenses given to object.
+     *
+     * @return expense map
+     */
     public Map<String, Double> getExpenses() {
         return expenses;
-    }
-
-    public void setExpenses(Map<String, Double> expenses) {
-        this.expenses = expenses;
     }
 
 }

@@ -6,18 +6,26 @@
 package logic;
 
 /**
+ * Task-object that contains attributes relevant to tasks.
  *
  * @author Juho
  */
 public class Task {
 
     private String name;
-    private String descr;
+    private String motive;
     private int time;
 
-    public Task(String name, String descr, int time) {
+    /**
+     * Constructor.
+     *
+     * @param name name of the task
+     * @param motive name of the goal achieved by completing said task
+     * @param time time the task takes
+     */
+    public Task(String name, String motive, int time) {
         this.name = name;
-        this.descr = descr;
+        this.motive = motive;
         this.time = time;
     }
 
@@ -29,12 +37,12 @@ public class Task {
         this.name = name;
     }
 
-    public String getDescr() {
-        return descr;
+    public String getMotive() {
+        return motive;
     }
 
-    public void setDescr(String descr) {
-        this.descr = descr;
+    public void setMotive(String motive) {
+        this.motive = motive;
     }
 
     public int getTime() {

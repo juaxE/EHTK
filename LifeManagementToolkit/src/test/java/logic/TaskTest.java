@@ -30,7 +30,7 @@ public class TaskTest {
 
     @Test
     public void correctDescr() {
-        assertTrue(task.getDescr().equals("Cleaning my house"));
+        assertTrue(task.getMotive().equals("Cleaning my house"));
     }
 
     @Test

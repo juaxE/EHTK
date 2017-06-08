@@ -31,11 +31,27 @@ public class BudgeterTest {
     }
 
     @Test
+    public void addsToExistingExpense() {
+        Budgeter.addExpense("k", 0.01);
+        Budgeter.addExpense("k", 5.04);
+
+        assertTrue(Budgeter.getExpenses().containsValue(5.05));
+    }
+
+    @Test
     public void addsIncome() {
         Budgeter.addIncome("k", 0.01);
 
         assertTrue(Budgeter.getIncome().containsKey("k"));
         assertTrue(Budgeter.getIncome().containsValue(0.01));
+    }
+
+    @Test
+    public void addsToExistingIncome() {
+        Budgeter.addIncome("k", 0.01);
+        Budgeter.addIncome("k", 5.04);
+
+        assertTrue(Budgeter.getIncome().containsValue(5.05));
     }
 
     @Test

@@ -12,20 +12,38 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 import logic.Budgeter;
+import javafx.scene.text.Text;
 
 /**
+ * Creates a GridPane element that the user can add budget-related information
+ * with.
  *
- * @author Juho
  */
 public class BudgetView {
 
     private Budgeter budgeter;
 
+    /**
+     * Constructor that sets the budgeter attribute for the object.
+     *
+     * @param budgeter object given from main Stage to add to budget with.
+     *
+     * @see Budgeter
+     */
     public BudgetView(Budgeter budgeter) {
         this.budgeter = budgeter;
     }
 
+    /**
+     * Creates a Gridpane that you can input budget information into.
+     *
+     *
+     * @return returns a Gridpane element with capabilities to add to budget
+     * list.
+     *
+     */
     public Parent getView() {
         GridPane setting = new GridPane();
 
@@ -34,7 +52,8 @@ public class BudgetView {
         setting.setHgap(10);
         setting.setPadding(new Insets(10, 10, 10, 10));
 
-        Label error = new Label("Määräsyöte ei ole numero");
+        Text error = new Text("Määräsyöte ei ole numero");
+        error.setFill(Color.RED);
         Label description = new Label("Syötä suunniteltavan kuukauden tulot ja menot kuvauksineen");
         Label instructIncome = new Label("Tulo");
         Label instructExpense = new Label("Meno");

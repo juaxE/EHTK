@@ -16,20 +16,32 @@ import javafx.scene.layout.HBox;
 import logic.*;
 
 /**
- *
+ *  Class initializes and runs the graphical user interface.
  * @author Juho
  */
 public class UserInterface extends Application {
 
+    /**
+     *
+     * Method initializes and changes the graphical user interface.
+     * @param window Stage to display Scenes on.
+     * 
+     * @see Budgeter
+     * @see Tasklist
+     * @see OverView
+     * @see BudgetView
+     * @see TaskView
+     */
     @Override
     public void start(Stage window) {
 
         Budgeter budgeter = new Budgeter();
         Tasklist tasklist = new Tasklist();
-        
+
         BudgetView budgetView = new BudgetView(budgeter);
         TaskView taskView = new TaskView(tasklist);
-        
+        OverView overview = new OverView(tasklist, budgeter);
+
         BorderPane setting = new BorderPane();
 
         Label description = new Label("Elämänhallintasovellus(EHTK) on työväline ihmisen arkea tukemaan."
@@ -37,6 +49,7 @@ public class UserInterface extends Application {
                 + "Voit myös tallentaa suunnitelmasi tai poistua sovelluksesta.");
         Button budgetWindow = new Button("Rahanhallintaa");
         Button taskWindow = new Button("Aikataulutusta");
+        Button overviewWindow = new Button("Yhteenveto");
         Button quit = new Button("Poistu");
         Button save = new Button("Tallenna tiedostoon");
 
@@ -44,20 +57,21 @@ public class UserInterface extends Application {
         menu.setPadding(new Insets(20, 20, 20, 20));
         menu.setSpacing(40);
 
-        menu.getChildren().addAll(budgetWindow, taskWindow, save, quit);
-       
+        menu.getChildren().addAll(budgetWindow, taskWindow, overviewWindow, save, quit);
+
         budgetWindow.setOnAction((event) -> setting.setCenter(budgetView.getView()));
-        
+        taskWindow.setOnAction((event) -> setting.setCenter(taskView.getView()));
+        overviewWindow.setOnAction((event) -> setting.setCenter(overview.getView()));
+
         quit.setOnAction((event) -> window.close());
-        
+
         setting.setBottom(menu);
         setting.setCenter(description);
-        
-        Scene view = new Scene(setting, 600, 450);
-        
+
+        Scene view = new Scene(setting, 740, 500);
+
         window.setScene(view);
         window.show();
-        
 
     }
 }

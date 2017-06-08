@@ -10,22 +10,35 @@ import java.util.Map;
 
 /**
  *
- * @author Juho
+ * Class keeps track of tasks given by the user.
  */
 public class Tasklist {
 
     private Map<String, Task> tasks;
 
+    /**
+     * Constructor that initializes the Map attribute.
+     */
     public Tasklist() {
         tasks = new HashMap<>();
     }
 
+    /**
+     * Adds a task to the Map.
+     *
+     * @param task task that is added to the Map
+     */
     public void addTask(Task task) {
         if (!tasks.containsKey(task.getName())) {
             tasks.put(task.getName(), task);
         }
     }
 
+    /**
+     * Removes a given task from the Map.
+     *
+     * @param name task being removed.
+     */
     public void removeTask(String name) {
         if (tasks.containsKey(name)) {
             tasks.remove(name);
@@ -34,10 +47,6 @@ public class Tasklist {
 
     public Map<String, Task> getTasks() {
         return tasks;
-    }
-
-    public void setTasks(Map<String, Task> tasks) {
-        this.tasks = tasks;
     }
 
 }
