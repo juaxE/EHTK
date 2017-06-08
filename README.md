@@ -8,7 +8,7 @@ Elämänhallintatyökalu. Sisältää rahan- ja ajanhallinnassa käyttäjää tu
 
 * [Tuntikirjanpito](dokumentaatio/tuntikirjanpito.md)
 
-* [Pit-raportti](https://htmlpreview.github.io/?https://github.com/juaxE/EHTK/blob/master/dokumentaatio/pit/201706012314/index.html)
+* [Pit-raportti](https://htmlpreview.github.io/?https://github.com/juaxE/EHTK/blob/master/dokumentaatio/pit/201706082359/index.html)
 
 * [Checkstyle-raportti](https://htmlpreview.github.io/?https://github.com/juaxE/EHTK/blob/master/dokumentaatio/checkstyle/checkstyle.html)
 
