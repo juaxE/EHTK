@@ -13,6 +13,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import logic.Budgeter;
 import javafx.scene.text.Text;
 
@@ -54,7 +55,6 @@ public class BudgetView {
 
         Text error = new Text("Määräsyöte ei ole numero");
         error.setFill(Color.RED);
-        Label description = new Label("Syötä suunniteltavan kuukauden tulot ja menot kuvauksineen");
         Label instructIncome = new Label("Tulo");
         Label instructExpense = new Label("Meno");
         Label amount = new Label("Määrä");
@@ -68,7 +68,6 @@ public class BudgetView {
         Button saveIncome = new Button("Syötä tulo");
         Button saveExpense = new Button("Syötä meno");
 
-        setting.add(description, 0, 0);
         setting.add(amount, 0, 2);
         setting.add(name, 0, 1);
         setting.add(instructIncome, 1, 0);
@@ -119,5 +118,11 @@ public class BudgetView {
         });
 
         return setting;
+    }
+
+    public Label getHeader() {
+        Label description = new Label("Syötä suunniteltavan kuukauden tulot ja menot kuvauksineen");
+        description.setFont(new Font("Arial", 20));
+        return description;
     }
 }

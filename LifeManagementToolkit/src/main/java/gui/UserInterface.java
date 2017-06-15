@@ -7,6 +7,7 @@ package gui;
 
 import javafx.geometry.Insets;
 import javafx.application.Application;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
@@ -16,7 +17,8 @@ import javafx.scene.layout.HBox;
 import logic.*;
 
 /**
- *  Class initializes and runs the graphical user interface.
+ * Class initializes and runs the graphical user interface.
+ *
  * @author Juho
  */
 public class UserInterface extends Application {
@@ -24,8 +26,9 @@ public class UserInterface extends Application {
     /**
      *
      * Method initializes and changes the graphical user interface.
+     *
      * @param window Stage to display Scenes on.
-     * 
+     *
      * @see Budgeter
      * @see Tasklist
      * @see OverView
@@ -59,7 +62,10 @@ public class UserInterface extends Application {
 
         menu.getChildren().addAll(budgetWindow, taskWindow, overviewWindow, save, quit);
 
-        budgetWindow.setOnAction((event) -> setting.setCenter(budgetView.getView()));
+        budgetWindow.setOnAction((event) -> {
+            setting.setCenter(budgetView.getView());
+            setting.setTop(budgetView.getHeader());            
+                });
         taskWindow.setOnAction((event) -> setting.setCenter(taskView.getView()));
         overviewWindow.setOnAction((event) -> setting.setCenter(overview.getView()));
 
