@@ -51,7 +51,7 @@ public class OverView {
         GridPane setting = new GridPane();
 
         int y = 1;
-
+        setting.setGridLinesVisible(true);
         setting.setAlignment(Pos.CENTER);
         setting.setVgap(10);
         setting.setHgap(10);
@@ -59,8 +59,9 @@ public class OverView {
 
         setting.add(new Text("Tehtävät"), 0, 0);
         setting.add(new Text("Tehtäväajat"), 1, 0);
-        setting.add(new Text("Tulot"), 2, 0);
-        setting.add(new Text("Menot"), 3, 0);
+        setting.add(new Text("Tulot"), 3, 0);
+        setting.add(new Text("Menot"), 4, 0);
+        setting.add(new Text("Budjetin erotus:"), 6, 0);
 
         for (Task t : tasklist.getTasks().values()) {
 
@@ -72,31 +73,30 @@ public class OverView {
         y = 1;
 
         for (String n : budgeter.getIncome().keySet()) {
-            setting.add(new Text(n), 2, y);
-            y = y + 2;
-        }
-
-        y = 2;
-
-        for (Double i : budgeter.getIncome().values()) {
-            setting.add(new Text(" " + Double.toString(i)), 2, y);
-            y = y + 2;
-        }
-        y = 1;
-        for (String n : budgeter.getExpenses().keySet()) {
             setting.add(new Text(n), 3, y);
             y = y + 2;
         }
 
         y = 2;
 
-        for (Double i : budgeter.getExpenses().values()) {
+        for (Double i : budgeter.getIncome().values()) {
             setting.add(new Text(" " + Double.toString(i)), 3, y);
             y = y + 2;
         }
+        y = 1;
+        for (String n : budgeter.getExpenses().keySet()) {
+            setting.add(new Text(n), 4, y);
+            y = y + 2;
+        }
 
-        setting.add(new Text("Budjetin erotus:"), 4, y);
-        setting.add(new Text(Double.toString(budgeter.checkBalance())), 4, y + 1);
+        y = 2;
+
+        for (Double i : budgeter.getExpenses().values()) {
+            setting.add(new Text(" " + Double.toString(i)), 4, y);
+            y = y + 2;
+        }
+
+        setting.add(new Text(Double.toString(budgeter.checkBalance())), 6, 1);
 
         return setting;
     }

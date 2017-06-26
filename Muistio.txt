@@ -1,0 +1,12 @@
+Muokkaa Overviewtä 
+
+	Tehtävälista			Budjetti
+	järjestelyvaihtoehtoja:		Tulot     Menot
+					Erotus
+	motiivittain, kesto,
+	 aakkoset
+
+				
+
+		käyttäjän mahdollisuus muokkaukselle, jos ehtii.
+	

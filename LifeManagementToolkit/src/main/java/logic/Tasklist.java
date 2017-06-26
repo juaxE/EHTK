@@ -5,7 +5,9 @@
  */
 package logic;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -47,6 +49,44 @@ public class Tasklist {
 
     public Map<String, Task> getTasks() {
         return tasks;
+    }
+
+    /**
+     * Counts the total time needed to complete tasks given.
+     *
+     * @return returns time counted in minutes
+     */
+    public int totalTime() {
+
+        int total = 0;
+        for (Task t : tasks.values()) {
+            total += t.getTime();
+        }
+        return total;
+
+    }
+
+    /**
+     * Counts the full hours needed to complete tasks given.
+     *
+     *  @return returns hours counted
+     */
+    public int hoursRequired() {
+        int time = totalTime();
+        int hours = time / 60;
+        return hours;
+
+    }
+
+    /**
+     * Counts the minutes needed to complete tasks given.
+     *
+     * @return returns minutes counted
+     */
+    public int minutesRequired() {
+        int time = totalTime();
+        int minutes = time % 60;
+        return minutes;
     }
 
 }

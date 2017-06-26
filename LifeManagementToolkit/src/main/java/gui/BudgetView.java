@@ -85,8 +85,11 @@ public class BudgetView {
         saveIncome.setOnAction((event) -> {
             try {
                 setting.getChildren().remove(error);
-
-                double add = Double.parseDouble(income.getText());
+                String syote = income.getText();
+                if(syote.contains(",")){
+                    syote = syote.replaceAll("," , ".");
+                }
+                double add = Double.parseDouble(syote);
                 String n = incomeName.getText();
 
                 budgeter.addIncome(n, add);

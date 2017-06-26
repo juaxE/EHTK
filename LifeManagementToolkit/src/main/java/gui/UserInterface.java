@@ -51,13 +51,12 @@ public class UserInterface extends Application {
         Button taskWindow = new Button("Aikataulutusta");
         Button overviewWindow = new Button("Yhteenveto");
         Button quit = new Button("Poistu");
-        Button save = new Button("Tallenna tiedostoon");
 
         HBox menu = new HBox();
         menu.setPadding(new Insets(20, 20, 20, 20));
         menu.setSpacing(40);
 
-        menu.getChildren().addAll(budgetWindow, taskWindow, overviewWindow, save, quit);
+        menu.getChildren().addAll(budgetWindow, taskWindow, overviewWindow, quit);
 
         budgetWindow.setOnAction((event) -> setting.setCenter(budgetView.getView()));
         taskWindow.setOnAction((event) -> setting.setCenter(taskView.getView()));
