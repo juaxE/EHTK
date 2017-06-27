@@ -52,7 +52,9 @@ public class BudgetView {
         setting.setHgap(10);
         setting.setPadding(new Insets(10, 10, 10, 10));
 
-        Text error = new Text("Määräsyöte ei ole numero");
+        Text numberError = new Text("Aikasyöte ei ole numero");
+        numberError.setFill(Color.RED);
+        Text error = new Text("Puuttellinen syöte");
         error.setFill(Color.RED);
         Label description = new Label("Syötä suunniteltavan kuukauden tulot ja menot kuvauksineen");
         Label instructIncome = new Label("Tulo");
@@ -83,11 +85,18 @@ public class BudgetView {
         setting.add(saveExpense, 2, 3);
 
         saveIncome.setOnAction((event) -> {
+            setting.getChildren().remove(error);
+            setting.getChildren().remove(numberError);
+
+            if (income.getText().isEmpty() || incomeName.getText().isEmpty()) {
+                setting.add(error, 1, 4);
+                return;
+            }
+
             try {
-                setting.getChildren().remove(error);
                 String syote = income.getText();
-                if(syote.contains(",")){
-                    syote = syote.replaceAll("," , ".");
+                if (syote.contains(",")) {
+                    syote = syote.replaceAll(",", ".");
                 }
                 double add = Double.parseDouble(syote);
                 String n = incomeName.getText();
@@ -95,7 +104,7 @@ public class BudgetView {
                 budgeter.addIncome(n, add);
 
             } catch (Exception e) {
-                setting.add(error, 1, 4);
+                setting.add(numberError, 1, 4);
                 return;
 
             }
@@ -104,8 +113,14 @@ public class BudgetView {
         });
 
         saveExpense.setOnAction((event) -> {
+            setting.getChildren().remove(error);
+            setting.getChildren().remove(numberError);
+
+            if (expense.getText().isEmpty() || expenseName.getText().isEmpty()) {
+                setting.add(error, 2, 4);
+                return;
+            }
             try {
-                setting.getChildren().remove(error);
 
                 double add = Double.parseDouble(expense.getText());
                 String n = expenseName.getText();
@@ -113,7 +128,7 @@ public class BudgetView {
                 budgeter.addExpense(n, add);
 
             } catch (Exception e) {
-                setting.add(error, 2, 4);
+                setting.add(numberError, 2, 4);
                 return;
 
             }

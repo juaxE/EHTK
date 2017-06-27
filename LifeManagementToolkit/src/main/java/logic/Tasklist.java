@@ -69,7 +69,7 @@ public class Tasklist {
     /**
      * Counts the full hours needed to complete tasks given.
      *
-     *  @return returns hours counted
+     * @return returns hours counted
      */
     public int hoursRequired() {
         int time = totalTime();

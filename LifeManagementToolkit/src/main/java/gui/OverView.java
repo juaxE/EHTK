@@ -8,6 +8,7 @@ package gui;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
+import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import logic.Budgeter;
@@ -51,17 +52,18 @@ public class OverView {
         GridPane setting = new GridPane();
 
         int y = 1;
-        setting.setGridLinesVisible(true);
+//        setting.setGridLinesVisible(true);
         setting.setAlignment(Pos.CENTER);
         setting.setVgap(10);
         setting.setHgap(10);
         setting.setPadding(new Insets(10, 10, 10, 10));
-
+        Button sortList = new Button();
         setting.add(new Text("Tehtävät"), 0, 0);
         setting.add(new Text("Tehtäväajat"), 1, 0);
         setting.add(new Text("Tulot"), 3, 0);
         setting.add(new Text("Menot"), 4, 0);
         setting.add(new Text("Budjetin erotus:"), 6, 0);
+        setting.add(new Button(Integer.toString(tasklist.hoursRequired()) + " tuntia\n" + Integer.toString(tasklist.hoursRequired()) + " minuuttia"), 1, 8);
 
         for (Task t : tasklist.getTasks().values()) {
 

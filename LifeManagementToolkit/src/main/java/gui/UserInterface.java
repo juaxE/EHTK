@@ -30,7 +30,7 @@ public class UserInterface extends Application {
      * @see Tasklist
      * @see OverView
      * @see BudgetView
-     * @see TaskView
+     * @see TaskInputView
      */
     @Override
     public void start(Stage window) {
@@ -39,7 +39,7 @@ public class UserInterface extends Application {
         Tasklist tasklist = new Tasklist();
 
         BudgetView budgetView = new BudgetView(budgeter);
-        TaskView taskView = new TaskView(tasklist);
+        TaskInputView taskView = new TaskInputView(tasklist);
         OverView overview = new OverView(tasklist, budgeter);
 
         BorderPane setting = new BorderPane();

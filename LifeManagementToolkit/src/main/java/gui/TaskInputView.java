@@ -16,28 +16,36 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import logic.Tasklist;
 import logic.Task;
+import logic.User;
 
 /**
  * Class creates a GridPane element that lets user input tasks.
+ *
  * @author Juho
  */
-public class TaskView {
+public class TaskInputView {
 
     private Tasklist tasklist;
+    private User user;
 
     /**
      * Constructor that sets the attribute used to store tasks with.
+     *
      * @param tasklist
      */
-    public TaskView(Tasklist tasklist) {
+    public TaskInputView(Tasklist tasklist) {
         this.tasklist = tasklist;
+        this.user = new User();
     }
 
     /**
-     * Method returns a GridPane element that lets the user input task information.
+     * Method returns a GridPane element that lets the user input task
+     * information.
+     *
      * @return GridPane element to input info with.
      */
     public Parent getView() {
+
         GridPane setting = new GridPane();
 
         setting.setAlignment(Pos.CENTER);
@@ -45,31 +53,45 @@ public class TaskView {
         setting.setHgap(10);
         setting.setPadding(new Insets(10, 10, 10, 10));
 
-        Text error = new Text("Määräsyöte ei ole numero");
+        Text numberError = new Text("Aikasyöte ei ole numero");
+        numberError.setFill(Color.RED);
+        Text error = new Text("Puutteellinen syöte");
         error.setFill(Color.RED);
-        Label description = new Label("Syötä tiedossasi olevia tehtäviä ja arvioi niiden vaatimaa aikaa.");
+        Label description = new Label("Syötä tiedossasi olevia tehtäviä \nja arvioi niiden vaatimaa aikaa.");
         Label name = new Label("Tehtävä");
         Label motive = new Label("Motiivi");
         Label timeInfo = new Label("Vaadittu aika (min.)");
+        Label userTime = new Label("Syötä minuutteina päivittäin käytettävissä \noleva aika tehtävien tekemiseen.");
 
+        TextField capacity = new TextField();
         TextField time = new TextField();
         TextField taskName = new TextField();
         TextField motiveName = new TextField();
-        Button saveTask = new Button("Syötä tehtävä");
 
+        Button saveTask = new Button("Syötä tehtävä");
+        Button saveCapacity = new Button("Tallenna määrä");
         setting.add(description, 0, 0);
         setting.add(name, 0, 1);
         setting.add(timeInfo, 0, 2);
         setting.add(motive, 0, 3);
+        setting.add(userTime, 0, 7);
 
         setting.add(taskName, 1, 1);
         setting.add(time, 1, 2);
-        setting.add(motiveName, 1, 3);
+        setting.add(motiveName, 1, 3);              
+        setting.add(capacity, 1, 7);
+        
         setting.add(saveTask, 1, 4);
+        setting.add(saveCapacity, 1, 8);
 
         saveTask.setOnAction((event) -> {
+            setting.getChildren().remove(error);
+            setting.getChildren().remove(numberError);
+            if (taskName.getText().isEmpty() || time.getText().isEmpty()) {         //Motive not included in check as a design choice.
+                setting.add(error, 1, 5);
+                return;
+            }
             try {
-                setting.getChildren().remove(error);
 
                 int t = Integer.parseInt(time.getText());
                 String n = taskName.getText();
@@ -78,13 +100,37 @@ public class TaskView {
                 tasklist.addTask(new Task(n, m, t));
 
             } catch (Exception e) {
-                setting.add(error, 1, 4);
+
+                setting.add(numberError, 1, 5);
+
                 return;
 
             }
             time.clear();
             taskName.clear();
             motiveName.clear();
+        });
+
+        saveCapacity.setOnAction((event) -> {
+            setting.getChildren().remove(error);
+            setting.getChildren().remove(numberError);
+            
+            if (capacity.getText().isEmpty()) {
+                setting.add(error, 1, 9);
+                return;
+            }
+            
+            try {
+                int c = Integer.parseInt(capacity.getText());
+                user.setDailyCapacity(c);
+
+            } catch (Exception e) {
+
+                setting.add(numberError, 1, 9);
+                return;
+
+            }
+            capacity.clear();
         });
 
         return setting;
