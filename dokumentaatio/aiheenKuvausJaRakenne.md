@@ -11,7 +11,7 @@
 * tehtävien syöttö
 * ajankäytön syöttö
 
-* raporttitiedoston tallentaminen
+* syötettyjen tietojen ja niistä laskettujen arvojen tarkastelu
 
 
 
