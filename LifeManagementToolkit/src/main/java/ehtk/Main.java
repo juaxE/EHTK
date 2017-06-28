@@ -11,13 +11,15 @@ import javafx.application.Application;
 
 /**
  *
- * @author Juho
+ * Main class used to initialize the application.
  */
 public class Main {
 
     /**
      *
      * The main-method that launches the program.
+     * 
+     * @param args arguments
      */
     public static void main(String[] args) {
         Application.launch(UserInterface.class);

@@ -37,10 +37,11 @@ public class UserInterface extends Application {
 
         Budgeter budgeter = new Budgeter();
         Tasklist tasklist = new Tasklist();
+        User user = new User();
 
         BudgetView budgetView = new BudgetView(budgeter);
-        TaskInputView taskView = new TaskInputView(tasklist);
-        OverView overview = new OverView(tasklist, budgeter);
+        TaskInputView taskView = new TaskInputView(tasklist, user);
+        OverView overview = new OverView(tasklist, budgeter, user);
 
         BorderPane setting = new BorderPane();
 

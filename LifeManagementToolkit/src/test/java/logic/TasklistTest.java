@@ -40,8 +40,7 @@ public class TasklistTest {
 
         assertTrue(tasklist.getTasks().containsKey("a"));
     }
-    
-    
+
     @Test
     public void taskValuesAreCorrect() {
         tasklist.addTask(new Task("a", "b", 1));
@@ -56,28 +55,40 @@ public class TasklistTest {
 
         assertEquals(0, tasklist.getTasks().size());
     }
-    
+
     @Test
-    public void countsTotalTime(){
+    public void countsTotalTime() {
         tasklist.addTask(new Task("ok", "jee", 200));
         tasklist.addTask(new Task("juuh", "juup", 300));
-        
+
         assertEquals(500, tasklist.totalTime());
     }
-    
+
     @Test
-    public void countsHours(){
+    public void countsHours() {
         tasklist.addTask(new Task("ok", "jee", 200));
         tasklist.addTask(new Task("juuh", "juup", 30));
-        
+
         assertEquals(3, tasklist.hoursRequired());
     }
-    
+
     @Test
-    public void countsMinutes(){
+    public void countsMinutes() {
         tasklist.addTask(new Task("ok", "jee", 200));
         tasklist.addTask(new Task("juuh", "juup", 30));
-        
+
         assertEquals(50, tasklist.minutesRequired());
+    }
+
+    @Test
+    public void countsWholeDays() {
+        tasklist.addTask(new Task("asd123", "jippidippidei", 300));
+        assertEquals(3, tasklist.daysRequired(100));
+    }
+
+    @Test
+    public void addsPartialDays() {
+        tasklist.addTask(new Task("a12sd1", "jip12pidipei", 605));
+        assertEquals(13,tasklist.daysRequired(50));
     }
 }

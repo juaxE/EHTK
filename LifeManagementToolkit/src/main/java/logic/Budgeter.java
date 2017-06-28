@@ -95,6 +95,3 @@ public class Budgeter {
     }
 
 }
-
-
-//monthly income and expenses checker. could expand

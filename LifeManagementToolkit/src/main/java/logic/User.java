@@ -7,13 +7,18 @@ package logic;
 
 /**
  *
- * @author Juho
+ * Class to save user related data.
  */
 public class User {
+
     private int dailyCapacity;
 
+    /**
+     *  Constructor sets the dailyCapacity at one to avoid dividing by zero.
+     * 
+     */
     public User() {
-        this.dailyCapacity = 0;
+        this.dailyCapacity = 1;
     }
 
     public int getDailyCapacity() {
@@ -23,6 +28,5 @@ public class User {
     public void setDailyCapacity(int dailyCapacity) {
         this.dailyCapacity = dailyCapacity;
     }
-    
-    
+
 }

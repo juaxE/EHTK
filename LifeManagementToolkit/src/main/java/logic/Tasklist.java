@@ -89,4 +89,22 @@ public class Tasklist {
         return minutes;
     }
 
+    /**
+     * Counts the days needed to complete tasks given with the time given to it.
+     *
+     * @param minutesPerDay minutes given to the method as the daily time
+     * available by user.
+     *
+     * @return returns days counted
+     */
+
+    public int daysRequired(int minutesPerDay) {
+        int days = totalTime() / minutesPerDay;
+        
+        if (totalTime() % minutesPerDay != 0 && totalTime() > minutesPerDay) {
+            days++;
+        }
+        return days;
+    }
+
 }

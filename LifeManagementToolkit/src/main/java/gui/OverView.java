@@ -8,12 +8,12 @@ package gui;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import logic.Budgeter;
 import logic.Task;
 import logic.Tasklist;
+import logic.User;
 
 /**
  * Class creates an overview of tasks and budget info to be displayed in a
@@ -24,22 +24,27 @@ public class OverView {
 
     private Tasklist tasklist;
     private Budgeter budgeter;
+    private User user;
 
     /**
-     * Constructor that sets the objects used to display and modify information
-     * with.
+     * Constructor that sets the objects used to display data the user has given
+     * and show calculations based off the data.
+     * 
      *
      * @param tasklist list of tasks given by the object initializing this
-     * method
+     * object
      * @param budgeter budgeting information given by the object initializing
-     * this method
+     * this object
+     * @param user user information given by the object initializing this object
      *
      * @see Tasklist
      * @see Budgeter
+     * @see User
      */
-    public OverView(Tasklist tasklist, Budgeter budgeter) {
+    public OverView(Tasklist tasklist, Budgeter budgeter, User user) {
         this.tasklist = tasklist;
         this.budgeter = budgeter;
+        this.user = user;
     }
 
     /**
@@ -52,31 +57,43 @@ public class OverView {
         GridPane setting = new GridPane();
 
         int y = 1;
-//        setting.setGridLinesVisible(true);
+
         setting.setAlignment(Pos.CENTER);
         setting.setVgap(10);
         setting.setHgap(10);
         setting.setPadding(new Insets(10, 10, 10, 10));
-        Button sortList = new Button();
         setting.add(new Text("Tehtävät"), 0, 0);
         setting.add(new Text("Tehtäväajat"), 1, 0);
         setting.add(new Text("Tulot"), 3, 0);
         setting.add(new Text("Menot"), 4, 0);
         setting.add(new Text("Budjetin erotus:"), 6, 0);
-        setting.add(new Button(Integer.toString(tasklist.hoursRequired()) + " tuntia\n" + Integer.toString(tasklist.hoursRequired()) + " minuuttia"), 1, 8);
+        setting.add(new Text(Double.toString(budgeter.checkBalance())), 6, 1);
 
         for (Task t : tasklist.getTasks().values()) {
 
             setting.add(new Text(t.getName()), 0, y);
             setting.add(new Text(Integer.toString(t.getTime())), 1, y);
             y++;
+            if (y == 15) {
+                setting.add(new Text("..."), 0, y);
+                setting.add(new Text("..."), 1, y);
+                y++;
+                break;
+            }
         }
-
+        setting.add(new Text("Kokonaisaika"), 0, y);
+        setting.add(new Text(Integer.toString(tasklist.hoursRequired()) + " tuntia & " + Integer.toString(tasklist.minutesRequired()) + " minuuttia"), 1, y);
+        y++;
+        setting.add(new Text("Tehtävien suorittamiseen kuluvat päivät"), 0, y);
+        setting.add(new Text(Integer.toString(tasklist.daysRequired(user.getDailyCapacity()))), 1, y);
         y = 1;
 
         for (String n : budgeter.getIncome().keySet()) {
             setting.add(new Text(n), 3, y);
             y = y + 2;
+            if (y == 15) {
+                break;
+            }
         }
 
         y = 2;
@@ -84,11 +101,20 @@ public class OverView {
         for (Double i : budgeter.getIncome().values()) {
             setting.add(new Text(" " + Double.toString(i)), 3, y);
             y = y + 2;
+            if (y == 16) {
+                setting.add(new Text("..."), 3, 15);
+                break;
+            }
         }
+
         y = 1;
+
         for (String n : budgeter.getExpenses().keySet()) {
             setting.add(new Text(n), 4, y);
             y = y + 2;
+            if (y == 15) {
+                break;
+            }
         }
 
         y = 2;
@@ -96,9 +122,11 @@ public class OverView {
         for (Double i : budgeter.getExpenses().values()) {
             setting.add(new Text(" " + Double.toString(i)), 4, y);
             y = y + 2;
+            if (y == 16) {
+                setting.add(new Text("..."), 4, 15);
+                break;
+            }
         }
-
-        setting.add(new Text(Double.toString(budgeter.checkBalance())), 6, 1);
 
         return setting;
     }

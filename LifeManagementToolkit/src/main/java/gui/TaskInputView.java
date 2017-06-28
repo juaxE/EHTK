@@ -31,11 +31,15 @@ public class TaskInputView {
     /**
      * Constructor that sets the attribute used to store tasks with.
      *
-     * @param tasklist
+     * @param tasklist tasklist object given by the initializing object
+     * @param user user object given by the initializing object
+     *
+     * @see Tasklist
+     * @see User
      */
-    public TaskInputView(Tasklist tasklist) {
+    public TaskInputView(Tasklist tasklist, User user) {
         this.tasklist = tasklist;
-        this.user = new User();
+        this.user = user;
     }
 
     /**
@@ -55,6 +59,8 @@ public class TaskInputView {
 
         Text numberError = new Text("Aikasyöte ei ole numero");
         numberError.setFill(Color.RED);
+        Text negativeError = new Text("Syötä vain positiivisia arvoja");
+        negativeError.setFill(Color.RED);
         Text error = new Text("Puutteellinen syöte");
         error.setFill(Color.RED);
         Label description = new Label("Syötä tiedossasi olevia tehtäviä \nja arvioi niiden vaatimaa aikaa.");
@@ -78,21 +84,28 @@ public class TaskInputView {
 
         setting.add(taskName, 1, 1);
         setting.add(time, 1, 2);
-        setting.add(motiveName, 1, 3);              
+        setting.add(motiveName, 1, 3);
         setting.add(capacity, 1, 7);
-        
+
         setting.add(saveTask, 1, 4);
         setting.add(saveCapacity, 1, 8);
 
         saveTask.setOnAction((event) -> {
             setting.getChildren().remove(error);
             setting.getChildren().remove(numberError);
+            setting.getChildren().remove(negativeError);
+
             if (taskName.getText().isEmpty() || time.getText().isEmpty()) {         //Motive not included in check as a design choice.
                 setting.add(error, 1, 5);
                 return;
             }
-            try {
 
+            if (Integer.parseInt(time.getText()) < 1) {
+                setting.add(negativeError, 1, 5);
+                return;
+            }
+
+            try {
                 int t = Integer.parseInt(time.getText());
                 String n = taskName.getText();
                 String m = motiveName.getText();
@@ -100,11 +113,8 @@ public class TaskInputView {
                 tasklist.addTask(new Task(n, m, t));
 
             } catch (Exception e) {
-
                 setting.add(numberError, 1, 5);
-
                 return;
-
             }
             time.clear();
             taskName.clear();
@@ -114,12 +124,18 @@ public class TaskInputView {
         saveCapacity.setOnAction((event) -> {
             setting.getChildren().remove(error);
             setting.getChildren().remove(numberError);
-            
+            setting.getChildren().remove(negativeError);
+
             if (capacity.getText().isEmpty()) {
                 setting.add(error, 1, 9);
                 return;
             }
-            
+
+            if (Integer.parseInt(capacity.getText()) < 1) {
+                setting.add(negativeError, 1, 9);
+                return;
+            }
+
             try {
                 int c = Integer.parseInt(capacity.getText());
                 user.setDailyCapacity(c);

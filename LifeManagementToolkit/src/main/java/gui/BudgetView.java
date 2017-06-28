@@ -54,6 +54,8 @@ public class BudgetView {
 
         Text numberError = new Text("Aikasyöte ei ole numero");
         numberError.setFill(Color.RED);
+        Text negativeError = new Text("Syötä vain positiivisia arvoja");
+        negativeError.setFill(Color.RED);
         Text error = new Text("Puuttellinen syöte");
         error.setFill(Color.RED);
         Label description = new Label("Syötä suunniteltavan kuukauden tulot ja menot kuvauksineen");
@@ -87,9 +89,15 @@ public class BudgetView {
         saveIncome.setOnAction((event) -> {
             setting.getChildren().remove(error);
             setting.getChildren().remove(numberError);
-
+            setting.getChildren().remove(negativeError);
+            
             if (income.getText().isEmpty() || incomeName.getText().isEmpty()) {
                 setting.add(error, 1, 4);
+                return;
+            }
+            
+            if (Integer.parseInt(income.getText()) < 1) {
+                setting.add(negativeError, 1, 4);
                 return;
             }
 
@@ -115,9 +123,14 @@ public class BudgetView {
         saveExpense.setOnAction((event) -> {
             setting.getChildren().remove(error);
             setting.getChildren().remove(numberError);
-
+            setting.getChildren().remove(negativeError);
+            
             if (expense.getText().isEmpty() || expenseName.getText().isEmpty()) {
                 setting.add(error, 2, 4);
+                return;
+            }
+            if (Integer.parseInt(expense.getText()) < 1) {
+                setting.add(negativeError, 2, 4);
                 return;
             }
             try {
