@@ -64,15 +64,21 @@ public class OverView {
         setting.setPadding(new Insets(10, 10, 10, 10));
         setting.add(new Text("Tehtävät"), 0, 0);
         setting.add(new Text("Tehtäväajat"), 1, 0);
-        setting.add(new Text("Tulot"), 3, 0);
-        setting.add(new Text("Menot"), 4, 0);
-        setting.add(new Text("Budjetin erotus:"), 6, 0);
-        setting.add(new Text(Double.toString(budgeter.checkBalance())), 6, 1);
+        setting.add(new Text("Motiivit"), 2, 0);
+        setting.add(new Text("Tulot"), 4, 0);
+        setting.add(new Text("Menot"), 5, 0);
+        setting.add(new Text("Tulot:"), 7, 0);
+        setting.add(new Text("Menot:"), 7, 2);
+        setting.add(new Text("Budjetin erotus:"), 7, 4);
+        setting.add(new Text(Double.toString(budgeter.totalIncome())), 7, 1);
+        setting.add(new Text(Double.toString(budgeter.totalExpenses())), 7, 3);
+        setting.add(new Text(Double.toString(budgeter.checkBalance())), 7, 5);
 
         for (Task t : tasklist.getTasks().values()) {
 
             setting.add(new Text(t.getName()), 0, y);
             setting.add(new Text(Integer.toString(t.getTime())), 1, y);
+            setting.add(new Text(t.getMotive()), 2, y);
             y++;
             if (y == 15) {
                 setting.add(new Text("..."), 0, y);
@@ -81,6 +87,7 @@ public class OverView {
                 break;
             }
         }
+        y++;
         setting.add(new Text("Kokonaisaika"), 0, y);
         setting.add(new Text(Integer.toString(tasklist.hoursRequired()) + " tuntia & " + Integer.toString(tasklist.minutesRequired()) + " minuuttia"), 1, y);
         y++;
@@ -89,27 +96,6 @@ public class OverView {
         y = 1;
 
         for (String n : budgeter.getIncome().keySet()) {
-            setting.add(new Text(n), 3, y);
-            y = y + 2;
-            if (y == 15) {
-                break;
-            }
-        }
-
-        y = 2;
-
-        for (Double i : budgeter.getIncome().values()) {
-            setting.add(new Text(" " + Double.toString(i)), 3, y);
-            y = y + 2;
-            if (y == 16) {
-                setting.add(new Text("..."), 3, 15);
-                break;
-            }
-        }
-
-        y = 1;
-
-        for (String n : budgeter.getExpenses().keySet()) {
             setting.add(new Text(n), 4, y);
             y = y + 2;
             if (y == 15) {
@@ -119,11 +105,32 @@ public class OverView {
 
         y = 2;
 
-        for (Double i : budgeter.getExpenses().values()) {
+        for (Double i : budgeter.getIncome().values()) {
             setting.add(new Text(" " + Double.toString(i)), 4, y);
             y = y + 2;
             if (y == 16) {
                 setting.add(new Text("..."), 4, 15);
+                break;
+            }
+        }
+
+        y = 1;
+
+        for (String n : budgeter.getExpenses().keySet()) {
+            setting.add(new Text(n), 5, y);
+            y = y + 2;
+            if (y == 15) {
+                break;
+            }
+        }
+
+        y = 2;
+
+        for (Double i : budgeter.getExpenses().values()) {
+            setting.add(new Text(" " + Double.toString(i)), 5, y);
+            y = y + 2;
+            if (y == 16) {
+                setting.add(new Text("..."), 5, 15);
                 break;
             }
         }

@@ -30,19 +30,9 @@ public class Budgeter {
      *
      * @return The division of income and expenses.
      */
-    public double checkBalance() {
-        double a = 0;
-        double b = 0;
-
-        for (double i : income.values()) {
-            a += i;
-        }
-
-        for (double i : expenses.values()) {
-            b += i;
-        }
-
-        return a - b;
+    public double checkBalance() {  
+        
+        return totalIncome()-totalExpenses();
 
     }
 
@@ -74,6 +64,30 @@ public class Budgeter {
             income.put(name, value);
         }
 
+    }
+    /**
+     * Method returns the total expenses gathered.
+     *
+     * @return expenses in total
+     */
+    public double totalExpenses(){
+        double total=0;
+        for(double e : expenses.values()){
+            total+=e;
+        }
+        return total;
+    }
+    /**
+     * Method returns the total income gathered.
+     *
+     * @return income total
+     */
+    public double totalIncome(){
+        double total=0;
+        for(double i : income.values()){
+            total+=i;
+        }
+        return total;
     }
 
     /**
