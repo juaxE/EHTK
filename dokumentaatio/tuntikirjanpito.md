@@ -9,3 +9,5 @@ Päivä | Tunnit | Kuvaus
 08.06.2017 | 2h | Käyttöliittymän jatkokehitystä ja logiikan hiomista
 08.06.2017 | 1,5h| Dokumentaation päivitys ja JavaDocin aloitus
 26.06.2017 | 2h | Toiminnallisuuden lisäystä, suunnittelua
+27.06.2017 | 2h | Toiminnallisuuden lisäystä, suunnittelua
+28.06.2017 | 6h | Viimeistelyä, loppupalautuksen dokumentoinnin hoitamista
