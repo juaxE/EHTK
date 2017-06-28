@@ -25,7 +25,7 @@
 **Käyttäjä avaa budjetinsyöttönäkymän, syöttää tulon onnistuneesti ja katsoo sen yhteenvedosta**
 ![Sekvenssikaavio1](/dokumentaatio/sekvenssikaavio1.png)
 
-**Käyttäjä syöttää tehtävän onnistuneesti**
+**Käyttäjä syöttää tehtävän ja päivittäisen työajan onnistuneesti**
 ![Sekvenssikaavio2](/dokumentaatio/sekvenssikaavio2.png)
 
 
