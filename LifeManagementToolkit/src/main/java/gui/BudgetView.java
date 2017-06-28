@@ -90,12 +90,12 @@ public class BudgetView {
             setting.getChildren().remove(error);
             setting.getChildren().remove(numberError);
             setting.getChildren().remove(negativeError);
-            
+
             if (income.getText().isEmpty() || incomeName.getText().isEmpty()) {
                 setting.add(error, 1, 4);
                 return;
             }
-            
+
             if (Integer.parseInt(income.getText()) < 1) {
                 setting.add(negativeError, 1, 4);
                 return;
@@ -124,7 +124,7 @@ public class BudgetView {
             setting.getChildren().remove(error);
             setting.getChildren().remove(numberError);
             setting.getChildren().remove(negativeError);
-            
+
             if (expense.getText().isEmpty() || expenseName.getText().isEmpty()) {
                 setting.add(error, 2, 4);
                 return;

@@ -26,14 +26,21 @@ public class Tasklist {
     }
 
     /**
-     * Adds a task to the Map.
+     * Adds a task to the Map or adds to an existing one.
      *
      * @param task task that is added to the Map
      */
     public void addTask(Task task) {
         if (!tasks.containsKey(task.getName())) {
             tasks.put(task.getName(), task);
+
+        } else {
+            Task t = tasks.get(task.getName());
+            int m = t.getTime() + task.getTime();
+            tasks.get(task.getName()).setTime(m);
+            tasks.get(task.getName()).setMotive(task.getMotive());
         }
+
     }
 
     /**
@@ -97,10 +104,9 @@ public class Tasklist {
      *
      * @return returns days counted
      */
-
     public int daysRequired(int minutesPerDay) {
         int days = totalTime() / minutesPerDay;
-        
+
         if (totalTime() % minutesPerDay != 0 && totalTime() > minutesPerDay) {
             days++;
         }

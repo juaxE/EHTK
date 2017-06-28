@@ -49,6 +49,22 @@ public class TasklistTest {
     }
 
     @Test
+    public void taskTimeChanges() {
+        tasklist.addTask(new Task("a", "b", 1));
+        tasklist.addTask(new Task("a", "b", 3));
+
+        assertEquals(4, tasklist.getTasks().get("a").getTime(), 0);
+    }
+
+    @Test
+    public void motiveChanges() {
+        tasklist.addTask(new Task("a", "b", 3));
+        tasklist.addTask(new Task("a", "c", 3));
+
+        assertTrue(tasklist.getTasks().get("a").getMotive().equals("c"));
+    }
+
+    @Test
     public void taskDeletes() {
         tasklist.addTask(new Task("a", "b", 1));
         tasklist.removeTask("a");
@@ -89,6 +105,6 @@ public class TasklistTest {
     @Test
     public void addsPartialDays() {
         tasklist.addTask(new Task("a12sd1", "jip12pidipei", 605));
-        assertEquals(13,tasklist.daysRequired(50));
+        assertEquals(13, tasklist.daysRequired(50));
     }
 }

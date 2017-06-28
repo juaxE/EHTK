@@ -16,7 +16,8 @@ import javafx.scene.layout.HBox;
 import logic.*;
 
 /**
- *  Class initializes and runs the graphical user interface.
+ * Class initializes and runs the graphical user interface.
+ *
  * @author Juho
  */
 public class UserInterface extends Application {
@@ -24,8 +25,9 @@ public class UserInterface extends Application {
     /**
      *
      * Method initializes and changes the graphical user interface.
+     *
      * @param window Stage to display Scenes on.
-     * 
+     *
      * @see Budgeter
      * @see Tasklist
      * @see OverView

@@ -58,7 +58,7 @@ public class BudgeterTest {
     public void countsTotalExpenses() {
         budgeter.addExpense("k", 40);
         budgeter.addExpense("j", 60);
-        
+
         assertEquals(100, budgeter.totalExpenses(), 0);
     }
 
@@ -66,9 +66,10 @@ public class BudgeterTest {
     public void countsTotalIncome() {
         budgeter.addIncome("k", 14.10);
         budgeter.addIncome("j", 25.90);
-        
+
         assertEquals(40, budgeter.totalIncome(), 0);
     }
+
     @Test
     public void balanceCheckWorks() {
         budgeter.addExpense("a", 100.0);
