@@ -20,3 +20,10 @@
 
 
 ![Luokkakaavio](/dokumentaatio/luokkakaavio.png)
+
+
+**Rakennekuvaus:**
+Ylin käyttöliittymäluokka alustaa kaikki muut käytettävistä omista luokkaolioista paitsi Tehtävän. Tämä olio antaa näkymille parametreina niiden tarvitsemat logiikkaluokkien oliot, joita näkymissä luetaan, käytetään ja muokataan. Esimerkiksi Ajanhallintanäkymä saa attribuuteikseen parametreinä tehtävälistan ja käyttäjän. Tehtävälista taas muodostuu tehtäväolioista, joidenka parametrit ajanhallintanäkymä käyttäjältä kerää.
+
+Yhteenvetonäkymä käyttää parametreinä attribuuteiksi saaneitaan logiikkaolioita kerätyn datan osoittamiseksi selkeässä valossa. Laskutapahtumat tapahtuvat logiikkaluokissa ja Yhteenvetonäkymä vain kutsuu metodeja.
+
