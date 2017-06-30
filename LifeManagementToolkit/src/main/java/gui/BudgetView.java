@@ -96,12 +96,12 @@ public class BudgetView {
                 return;
             }
 
-            if (Integer.parseInt(income.getText()) < 1) {
-                setting.add(negativeError, 1, 4);
-                return;
-            }
-
             try {
+
+                if (Integer.parseInt(income.getText()) < 1) {
+                    setting.add(negativeError, 1, 4);
+                    return;
+                }
                 String syote = income.getText();
                 if (syote.contains(",")) {
                     syote = syote.replaceAll(",", ".");
@@ -129,11 +129,13 @@ public class BudgetView {
                 setting.add(error, 2, 4);
                 return;
             }
-            if (Integer.parseInt(expense.getText()) < 1) {
-                setting.add(negativeError, 2, 4);
-                return;
-            }
+
             try {
+
+                if (Integer.parseInt(expense.getText()) < 1) {
+                    setting.add(negativeError, 2, 4);
+                    return;
+                }
 
                 double add = Double.parseDouble(expense.getText());
                 String n = expenseName.getText();
