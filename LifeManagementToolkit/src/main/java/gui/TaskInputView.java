@@ -100,17 +100,17 @@ public class TaskInputView {
                 return;
             }
 
-            if (Integer.parseInt(time.getText()) < 1) {
-                setting.add(negativeError, 1, 5);
-                return;
-            }
-
             try {
                 int t = Integer.parseInt(time.getText());
-                String n = taskName.getText();
-                String m = motiveName.getText();
+                if (t < 1) {
+                    setting.add(negativeError, 1, 5);
+                    return;
+                } else {
+                    String n = taskName.getText();
+                    String m = motiveName.getText();
 
-                tasklist.addTask(new Task(n, m, t));
+                    tasklist.addTask(new Task(n, m, t));
+                }
 
             } catch (Exception e) {
                 setting.add(numberError, 1, 5);
@@ -131,14 +131,14 @@ public class TaskInputView {
                 return;
             }
 
-            if (Integer.parseInt(capacity.getText()) < 1) {
-                setting.add(negativeError, 1, 9);
-                return;
-            }
-
             try {
                 int c = Integer.parseInt(capacity.getText());
-                user.setDailyCapacity(c);
+                if (c < 1) {
+                    setting.add(negativeError, 1, 9);
+                    return;
+                } else {
+                    user.setDailyCapacity(c);
+                }
 
             } catch (Exception e) {
 

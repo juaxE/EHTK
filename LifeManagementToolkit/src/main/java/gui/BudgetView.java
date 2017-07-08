@@ -98,18 +98,19 @@ public class BudgetView {
 
             try {
 
-                if (Integer.parseInt(income.getText()) < 1) {
-                    setting.add(negativeError, 1, 4);
-                    return;
-                }
                 String syote = income.getText();
                 if (syote.contains(",")) {
                     syote = syote.replaceAll(",", ".");
                 }
                 double add = Double.parseDouble(syote);
-                String n = incomeName.getText();
+                if (add <= 0) {
+                    setting.add(negativeError, 1, 4);
+                    return;
+                } else {
+                    String n = incomeName.getText();
 
-                budgeter.addIncome(n, add);
+                    budgeter.addIncome(n, add);
+                }
 
             } catch (Exception e) {
                 setting.add(numberError, 1, 4);
@@ -132,15 +133,18 @@ public class BudgetView {
 
             try {
 
-                if (Integer.parseInt(expense.getText()) < 1) {
-                    setting.add(negativeError, 2, 4);
-                    return;
+                if (Integer.parseInt(expense.getText()) <= 0) {
+
                 }
 
                 double add = Double.parseDouble(expense.getText());
-                String n = expenseName.getText();
-
-                budgeter.addExpense(n, add);
+                if (add < 1) {
+                    setting.add(negativeError, 2, 4);
+                    return;
+                } else {
+                    String n = expenseName.getText();
+                    budgeter.addExpense(n, add);
+                }
 
             } catch (Exception e) {
                 setting.add(numberError, 2, 4);
